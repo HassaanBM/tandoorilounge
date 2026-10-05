@@ -1,0 +1,13 @@
+{
+  "name": "Tandoori Lounge",
+  "short_name": "Tandoori Lounge",
+  "description": "Indian cuisine and bar in Austin, TX.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#BA1C2D",
+  "background_color": "#F2EFE9",
+  "icons": [
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "favicon-32x32.png", "sizes": "32x32", "type": "image/png" }
+  ]
+}
