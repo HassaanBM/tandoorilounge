@@ -11,13 +11,16 @@
 <meta property="og:description" content="Authentic Indian flavors in Austin. Open daily until 3:00 AM. Order online, reserve a table, or plan an event.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tandooriloungetx.com/">
-<meta property="og:image" content="https://static.spotapps.co/website_images/ab_websites/128858_website/social.jpg">
+<meta property="og:image" content="https://tandooriloungetx.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tandoori Lounge, Indian kitchen and bar in Austin, TX. Open daily until 3:00 AM.">
 <meta property="og:site_name" content="Tandoori Lounge">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tandoori Lounge &amp; Bar - Austin, TX">
 <meta name="twitter:description" content="Authentic Indian flavors in Austin. Open daily until 3:00 AM. Order online, reserve a table, or plan an event.">
-<meta name="twitter:image" content="https://static.spotapps.co/website_images/ab_websites/128858_website/social.jpg">
+<meta name="twitter:image" content="https://tandooriloungetx.com/assets/og-image.png">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="icon" href="assets/icons/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
@@ -228,6 +231,35 @@ html.is-intro [data-intro-mark],html.is-intro [data-intro-sub]{opacity:0}
 body{padding-bottom:112px}
 @media (min-width:760px){.sbar{display:none}body{padding-bottom:0}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* location chooser */
+.visit{grid-template-columns:1fr!important}
+.loc{border:0;padding:0;background:transparent;color:var(--ink);max-width:min(560px,calc(100vw - 32px));width:100%;max-height:calc(100dvh - 32px);overflow:auto;border-radius:var(--r)}
+.loc::backdrop{background:rgba(9,13,17,.72)}
+.loc[open]{animation:locIn .45s var(--ease)}
+@keyframes locIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.loc__box{position:relative;display:grid;gap:14px;padding:clamp(28px,5vw,44px);border-radius:var(--r);background:var(--cream);border-top:6px solid var(--saffron)}
+.loc__x{position:absolute;top:12px;right:12px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background-color .2s,color .2s}
+.loc__x:hover{background:var(--ink);color:var(--cream)}
+.loc__box .h2{font-size:clamp(1.5rem,3.6vw,2rem);padding-right:40px}
+.loc__sub{color:var(--muted)}
+.loc__list{display:grid;gap:16px;margin-top:8px}
+.loc__card{all:unset;box-sizing:border-box;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:14px;min-height:44px;padding:24px 22px 22px;border-radius:var(--r);background:var(--red);color:#FBF9F5;cursor:pointer;box-shadow:0 14px 28px -16px rgba(9,13,17,.55);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.loc__card--b{background:var(--saffron);color:var(--ink)}
+.loc__card::before{content:"";position:absolute;top:14px;right:14px;width:92px;height:92px;z-index:-1;opacity:.28;background-image:radial-gradient(currentColor 1.5px,transparent 1.7px);background-size:13px 13px}
+.loc__card:hover,.loc__card:focus-visible{transform:translateY(-4px);box-shadow:0 22px 34px -16px rgba(9,13,17,.6)}
+.loc__card:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.loc__num{font:600 .8125rem/1 var(--font);letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.loc__name{font:400 clamp(1.5rem,3vw,1.85rem)/1.02 var(--display);text-transform:uppercase;letter-spacing:.01em;max-width:82%}
+.loc__info{display:grid;gap:10px;padding-top:14px;border-top:1px solid currentColor;border-top-color:color-mix(in srgb,currentColor 35%,transparent);font-size:.9375rem;line-height:1.45}
+.loc__row{display:flex;gap:10px;align-items:flex-start}
+.loc__row .ico{margin-top:.15em;opacity:.9}
+.loc__go{margin-top:auto;display:inline-flex;align-self:flex-start;align-items:center;gap:10px;min-height:44px;padding:0 18px;border-radius:var(--r);border:2px solid currentColor;font-weight:600;font-size:.9375rem;transition:background-color .25s,color .25s,border-color .25s}
+.loc__go .ico{transition:transform .25s var(--ease)}
+.loc__card:hover .loc__go,.loc__card:focus-visible .loc__go{background:#FBF9F5;border-color:#FBF9F5;color:var(--red)}
+.loc__card--b:hover .loc__go,.loc__card--b:focus-visible .loc__go{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.loc__card:hover .loc__go .ico{transform:translateX(4px)}
+@media (min-width:680px){.loc{max-width:min(860px,calc(100vw - 48px))}.loc__list{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -264,9 +296,8 @@ body{padding-bottom:112px}
       <a class="btn btn--line" href="austin-tandoori-lounge-reserve/index.html">Reserve a Table</a>
     </div>
     <ul class="badges" data-h>
-      <li><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>Daily 11:30 AM to 3:00 AM</li>
-      <li><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></svg>William Cannon Dr, Austin</li>
-      <li><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M237.66,45.66A8,8,0,0,0,232,32H24a8,8,0,0,0-5.66,13.66L120,147.31V208H88a8,8,0,0,0,0,16h80a8,8,0,0,0,0-16H136V147.31ZM43.31,48H212.69l-16,16H59.31ZM128,132.69,75.31,80H180.69Z"/></svg>Full bar</li>
+      <li><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>Open daily, 11:30 AM to 3:00 AM</li>
+      <li><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M237.66,45.66A8,8,0,0,0,232,32H24a8,8,0,0,0-5.66,13.66L120,147.31V208H88a8,8,0,0,0,0,16h80a8,8,0,0,0,0-16H136V147.31ZM43.31,48H212.69l-16,16H59.31ZM128,132.69,75.31,80H180.69Z"/></svg>Full caf&eacute;</li>
     </ul>
   </div>
   <span class="edge edge--saffron" aria-hidden="true"><svg viewBox="0 0 2000 65" preserveAspectRatio="xMidYMax slice" focusable="false"><path fill="currentColor" d="M1878.5 43.2H1275.4C1274.6 34 1264.4 26.8 1252 26.8H1062.8C1062.8 7.4 999.9 14.7 999.9 -0.1C999.9 14.6 937 7.4 937 26.8H748C735.5 26.8 725.3 34 724.6 43.2H121.5C41.4 43.2 0 64.7 0 64.7H1000H2000C2000 64.7 1958.6 43.2 1878.5 43.2Z"/></svg></span>
@@ -335,16 +366,14 @@ body{padding-bottom:112px}
         <h2 class="h2" id="visit-h" data-split>Come hungry. We are open late.</h2>
         <ul class="facts" data-reveal>
           <li><span><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg><span>Open daily, 11:30 AM to 3:00 AM</span></span></li>
-          <li><a href="https://www.google.com/maps/dir/?api=1&destination=Tandoori%20Lounge&destination_place_id=ChIJa0KViJRLW4YRgcfJud46yhA" rel="noopener"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></svg><span>3601 W William Cannon Dr STE 450<br>Austin, TX 78749</span></a></li>
           <li><a href="tel:+15126084013"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></svg><span>(512) 608-4013</span></a></li>
           <li><a href="mailto:tandooriloungetx@gmail.com"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></svg><span>tandooriloungetx@gmail.com</span></a></li>
         </ul>
         <div class="visit__cta" data-reveal>
-          <a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=Tandoori%20Lounge&destination_place_id=ChIJa0KViJRLW4YRgcfJud46yhA" rel="noopener">Get Directions</a>
+          <button class="btn" type="button" data-loc-open>Choose Your Location</button>
           <a class="btn btn--gold" href="austin-tandoori-lounge-reserve/index.html">Reserve a Table</a>
         </div>
       </div>
-      <div class="map" data-reveal><iframe title="Map of Tandoori Lounge in Austin" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=3601+W+William+Cannon+Dr+STE+450,+Austin,+TX+78749&amp;output=embed"></iframe></div>
     </div>
     <div class="news" data-reveal>
       <h3><button class="news__btn" type="button" id="news-btn" aria-expanded="false" aria-controls="news-panel"><span>Get offers and event news</span><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></button></h3>
@@ -379,6 +408,37 @@ body{padding-bottom:112px}
     <a class="btn" href="austin-tandoori-lounge-food-menu/index.html">Explore Menu &amp; Order</a>
   </div>
 </div>
+
+<dialog class="loc" id="loc" aria-labelledby="loc-h">
+  <div class="loc__box">
+    <button class="loc__x" type="button" data-loc-close aria-label="Close"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+    <p class="eyebrow">Two Austin locations</p>
+    <h2 class="h2" id="loc-h">Which Tandoori Lounge are you visiting?</h2>
+    <p class="loc__sub">Pick a location and we will take you there.</p>
+    <div class="loc__list">
+      <button class="loc__card " type="button" data-loc="slaughter-lane">
+        <span class="loc__num">01</span>
+        <span class="loc__name">Slaughter Lane</span>
+        <span class="loc__info">
+          <span class="loc__row"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></svg><span>Slaughter Lane<br>Austin, TX</span></span>
+          <span class="loc__row"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg><span>Open daily, 11:30 AM to 3:00 AM</span></span>
+          <span class="loc__row"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M237.66,45.66A8,8,0,0,0,232,32H24a8,8,0,0,0-5.66,13.66L120,147.31V208H88a8,8,0,0,0,0,16h80a8,8,0,0,0,0-16H136V147.31ZM43.31,48H212.69l-16,16H59.31ZM128,132.69,75.31,80H180.69Z"/></svg><span>Full caf&eacute;, tandoori kitchen and late-night dining</span></span>
+        </span>
+        <span class="loc__go">Select this location<svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span>
+      </button>
+      <button class="loc__card loc__card--b" type="button" data-loc="william-cannon">
+        <span class="loc__num">02</span>
+        <span class="loc__name">William Cannon</span>
+        <span class="loc__info">
+          <span class="loc__row"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></svg><span>3601 W William Cannon Dr STE 450<br>Austin, TX 78749</span></span>
+          <span class="loc__row"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg><span>Open daily, 11:30 AM to 3:00 AM</span></span>
+          <span class="loc__row"><svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M237.66,45.66A8,8,0,0,0,232,32H24a8,8,0,0,0-5.66,13.66L120,147.31V208H88a8,8,0,0,0,0,16h80a8,8,0,0,0,0-16H136V147.31ZM43.31,48H212.69l-16,16H59.31ZM128,132.69,75.31,80H180.69Z"/></svg><span>Full caf&eacute;, tandoori kitchen and late-night dining</span></span>
+        </span>
+        <span class="loc__go">Select this location<svg class="ico" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span>
+      </button>
+    </div>
+  </div>
+</dialog>
 
 <script src="assets/config.js"></script>
 <script src="assets/vendor/gsap.min.js" defer></script>

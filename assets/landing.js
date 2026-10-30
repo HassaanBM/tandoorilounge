@@ -169,6 +169,40 @@ if(hasG&&window.ScrollTrigger&&!reduce){
   });
 })();
 
+/* location chooser: any CTA or nav link into the Austin pages opens the modal first */
+(function(){
+  var dlg=$("#loc");if(!dlg||typeof dlg.showModal!=="function")return;
+  var dest=null,from=null;
+  function open(href,trigger){
+    dest=href;from=trigger;
+    if(lenis)lenis.stop();
+    dlg.showModal();
+  }
+  function done(){if(lenis&&!root.classList.contains("is-intro"))lenis.start();if(from&&from.focus)from.focus({preventScroll:true})}
+  dlg.addEventListener("close",done);
+  dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+  $("[data-loc-close]",dlg).addEventListener("click",function(){dlg.close()});
+  $$("[data-loc]",dlg).forEach(function(b){
+    b.addEventListener("click",function(){
+      var loc=b.getAttribute("data-loc");
+      try{localStorage.setItem("tl_location",loc)}catch(e){}
+      var href=dest||"austin-tandoori-lounge/index.html";
+      var u=href.split("#"),q=u[0].indexOf("?")>-1?"&":"?";
+      from=null;
+      location.href=u[0]+q+"location="+loc+(u[1]?"#"+u[1]:"");
+    });
+  });
+  document.addEventListener("click",function(e){
+    if(e.defaultPrevented||e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+    var opener=e.target.closest&&e.target.closest("[data-loc-open]");
+    if(opener){e.preventDefault();open(null,opener);return}
+    var a=e.target.closest&&e.target.closest("a[href]");
+    if(!a||a.closest("dialog"))return;
+    var h=a.getAttribute("href");
+    if(h&&/^austin-tandoori-lounge/.test(h)){e.preventDefault();open(h,a)}
+  });
+})();
+
 /* image fallback */
 function chk(){$$("img").forEach(function(im){if(im.complete&&!im.naturalWidth)im.style.visibility="hidden"})}
 $$("img").forEach(function(im){im.addEventListener("error",function(){im.style.visibility="hidden"},{once:true})});
